@@ -53,8 +53,10 @@ export function SearchWithSuggestions({ availableSizes }: SearchWithSuggestionsP
                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
                     <Input
                         type="text"
+                        autoComplete="new-password"
                         placeholder="ej. 205/55 R16"
-                        className="pl-9"
+                        className="pl-9 !bg-white !text-black placeholder:text-gray-500"
+                        style={{ backgroundColor: 'white' }}
                         value={query}
                         onChange={(e) => {
                             setQuery(e.target.value);
@@ -73,13 +75,13 @@ export function SearchWithSuggestions({ availableSizes }: SearchWithSuggestionsP
             </div>
 
             {isOpen && filteredSizes.length > 0 && (
-                <div className="absolute top-full z-50 mt-1 w-full overflow-hidden rounded-md border bg-white text-popover-foreground shadow-md dark:bg-zinc-950">
+                <div id="search-suggestions-dropdown" className="absolute top-full z-50 mt-1 w-full overflow-hidden rounded-md border shadow-md">
                     <div className="max-h-60 overflow-y-auto p-1">
                         {filteredSizes.map((size) => (
                             <div
                                 key={size}
                                 className={cn(
-                                    "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-accent hover:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer"
+                                    "relative flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none hover:bg-gray-100 hover:text-black data-[disabled]:pointer-events-none data-[disabled]:opacity-50 cursor-pointer text-black"
                                 )}
                                 onClick={() => handleSelect(size)}
                             >
