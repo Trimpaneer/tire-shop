@@ -1,5 +1,5 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
 
 const rawDataTruckPath = path.join(__dirname, '../raw_data_truck.txt');
 const rawDataAutoPath = path.join(__dirname, '../raw_data_auto.txt');

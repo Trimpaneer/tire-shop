@@ -157,14 +157,11 @@ export default function CatalogPage() {
 
     // Filter and Sort products
     const filteredProducts = useMemo(() => {
-        let result = searchFilteredProducts.filter(product => {
+        const result = searchFilteredProducts.filter(product => {
             if (selectedSize && product.size !== selectedSize) return false;
             if (selectedBrand && product.brand !== selectedBrand) return false;
             return true;
-        });
-
-        // Sorting
-        result.sort((a, b) => {
+        }).sort((a, b) => {
             if (sortOption === "radial-asc") {
                 const radialA = getRadialSize(a.size);
                 const radialB = getRadialSize(b.size);
@@ -195,7 +192,7 @@ export default function CatalogPage() {
                 <ProductSearch placeholder="Buscar por referencia, marca, tamaño..." className="max-w-2xl" />
                 {searchQuery && (
                     <p className="mt-2 text-sm text-muted-foreground">
-                        {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''} encontrado{filteredProducts.length !== 1 ? 's' : ''} para "{searchQuery}"
+                        {filteredProducts.length} producto{filteredProducts.length !== 1 ? 's' : ''} encontrado{filteredProducts.length !== 1 ? 's' : ''} para &quot;{searchQuery}&quot;
                     </p>
                 )}
             </div>

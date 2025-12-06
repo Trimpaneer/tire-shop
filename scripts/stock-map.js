@@ -1,5 +1,5 @@
 // Script to add stock quantities to products
-const fs = require('fs');
+import fs from 'fs';
 
 // Stock mapping from user data
 const stockMap = {
